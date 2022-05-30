@@ -1,0 +1,4 @@
+main.o: main.c main.h
+
+compilation_command => 1
+compilation_command => 2

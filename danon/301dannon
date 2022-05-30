@@ -1,0 +1,38 @@
+#!/usr/bin/python
+import sys
+
+from filereading import get_array_from_file
+from selection import Selection
+from insertion import Insertion
+from bubble import Bubble
+from quick import Quick
+from merge import Merge
+
+
+class Sorts:
+    def __init__(self, av):
+        self.array = get_array_from_file(av)
+        _select = Selection(self.array)
+        _insert = Insertion(self.array)
+        _bubble = Bubble(self.array)
+        _quick = Quick(self.array)
+        _merge = Merge(self.array)
+        self.selection = _select.bench()
+        self.insertion = _insert.bench()
+        self.bubble = _bubble.bench()
+        self.quick = _quick.bench()
+        self.merge = _merge.bench()
+
+    def print_benchmark(self):
+        print("{} element".format(len(self.array)) + ("s" if len(self.array) != 1 else ""))
+        print("Selection sort: {} comparison".format(self.selection) + ("s" if self.selection != 1 else ""))
+        print("Insertion sort: {} comparison".format(self.insertion) + ("s" if self.insertion != 1 else ""))
+        print("Bubble sort: {} comparison".format(self.bubble) + ("s" if self.bubble != 1 else ""))
+        print("Quicksort: {} comparison".format(self.quick) + ("s" if self.quick != 1 else ""))
+        print("Merge sort: {} comparison".format(self.merge) + ("s" if self.merge != 1 else ""))
+
+
+if __name__ == '__main__':
+    my_Sorts = Sorts(sys.argv)
+    my_Sorts.print_benchmark()
+    sys.exit(0)

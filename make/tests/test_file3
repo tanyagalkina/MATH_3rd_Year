@@ -1,0 +1,11 @@
+da: ca
+building ca into da
+
+ea: ba da
+building ba and da into ea
+
+ca: aa
+building aa into  ca
+
+ba: aa
+building aa into  ba
